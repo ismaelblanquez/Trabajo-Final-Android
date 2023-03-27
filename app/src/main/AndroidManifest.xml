@@ -12,7 +12,7 @@
         android:theme="@style/Theme.IBooking"
         tools:targetApi="31">
         <activity
-            android:name=".lstHoteles.view.RegisterActivity"
+            android:name=".lstHotels.view.RegisterActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -20,7 +20,22 @@
         </activity>
 
         <activity
-            android:name=".lstHoteles.view.LoginActivity"
+            android:name=".lstHotels.view.HotelListActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".lstHotels.view.HotelAdapter"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <activity
+            android:name=".lstHotels.view.LoginActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

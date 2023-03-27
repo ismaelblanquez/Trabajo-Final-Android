@@ -1,7 +1,7 @@
-package com.example.ibooking.lstHoteles.model;
+package com.example.ibooking.lstHotels.model;
 
 import com.example.ibooking.entities.Hotel;
-import com.example.ibooking.lstHoteles.LstHotelsContract;
+import com.example.ibooking.lstHotels.LstHotelsContract;
 import com.example.ibooking.utils.ApiClient;
 import com.example.ibooking.utils.ApiInterface;
 import com.google.gson.Gson;

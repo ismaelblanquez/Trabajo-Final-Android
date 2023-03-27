@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.example.ibooking.lstHoteles.view.RegisterActivity;
+import com.example.ibooking.lstHotels.view.RegisterActivity;
 
 public class MainActivity extends AppCompatActivity {
 

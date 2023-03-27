@@ -1,4 +1,4 @@
-package com.example.ibooking.lstHoteles;
+package com.example.ibooking.lstHotels;
 
 import com.example.ibooking.entities.Hotel;
 

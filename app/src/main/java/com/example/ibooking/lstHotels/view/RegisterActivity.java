@@ -1,4 +1,4 @@
-package com.example.ibooking.lstHoteles.view;
+package com.example.ibooking.lstHotels.view;
 
 import android.content.Intent;
 import android.os.Bundle;

@@ -1,7 +1,8 @@
-package com.example.ibooking.lstHoteles.view;
+package com.example.ibooking.lstHotels.view;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -9,8 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ibooking.R;
 import com.example.ibooking.entities.Hotel;
-import com.example.ibooking.lstHoteles.LstHotelsContract;
-import com.example.ibooking.lstHoteles.presenter.LstHotelsPresenter;
+import com.example.ibooking.lstHotels.LstHotelsContract;
+import com.example.ibooking.lstHotels.presenter.LstHotelsPresenter;
 
 
 import java.util.ArrayList;
@@ -50,7 +51,7 @@ public class HotelListActivity extends AppCompatActivity implements LstHotelsCon
 
     @Override
     public void failureLstHotels(String err) {
-
+        Toast.makeText(this, "error", Toast.LENGTH_SHORT).show();
     }
 }
 

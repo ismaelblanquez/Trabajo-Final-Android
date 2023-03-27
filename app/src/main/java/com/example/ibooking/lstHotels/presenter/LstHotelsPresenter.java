@@ -1,8 +1,8 @@
-package com.example.ibooking.lstHoteles.presenter;
+package com.example.ibooking.lstHotels.presenter;
 
 import com.example.ibooking.entities.Hotel;
-import com.example.ibooking.lstHoteles.LstHotelsContract;
-import com.example.ibooking.lstHoteles.model.LstHotelsModel;
+import com.example.ibooking.lstHotels.LstHotelsContract;
+import com.example.ibooking.lstHotels.model.LstHotelsModel;
 
 import java.util.List;
 

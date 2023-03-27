@@ -1,4 +1,4 @@
-package com.example.ibooking.lstHoteles.view;
+package com.example.ibooking.lstHotels.view;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,7 +7,6 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.ibooking.MainActivity;
 import com.example.ibooking.R;
 
 public class LoginActivity extends AppCompatActivity {
@@ -25,7 +24,7 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent screenChanger = new Intent(getBaseContext(),
-                        MainActivity.class
+                        HotelListActivity.class
                 );
                 startActivity(screenChanger);
             }
