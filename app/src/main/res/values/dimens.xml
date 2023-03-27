@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Definición del tamaño de fuente para el título de la aplicación -->
+    <dimen name="title_text_size">28sp</dimen>
+
+    <!-- Definición del tamaño de fuente para el texto normal -->
+    <dimen name="normal_text_size">16sp</dimen>
+
+    <!-- Definición del tamaño de margen entre elementos -->
+    <dimen name="margin_size">16dp</dimen>
+
+    <!-- Definición del tamaño de altura para los botones -->
+    <dimen name="button_height">48dp</dimen>
+
+    <!-- Definición del tamaño de ancho para los botones -->
+    <dimen name="button_width">150dp</dimen>
+
+    <!-- Activity Register -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+</resources>

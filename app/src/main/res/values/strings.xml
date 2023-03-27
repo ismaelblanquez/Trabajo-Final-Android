@@ -1,0 +1,86 @@
+<resources>
+    <!-- Textos comunes -->
+    <string name="app_name">IBooking</string>
+    <string name="search_hint">Buscar hotel...</string>
+    <string name="no_results">No se encontraron resultados.</string>
+
+    <!-- Nombres de secciones -->
+    <string name="home_section">Inicio</string>
+    <string name="filter_section">Filtro</string>
+    <string name="favorites_section">Favoritos</string>
+    <string name="history_section">Historial</string>
+    <string name="history_title">Historial</string>
+
+    <!-- Nombres comentarios -->
+    <string name="comment_title">Comentarios</string>
+    <string name="comment_form_title">Deja un comentario</string>
+    <string name="comment_name_hint">Tu nombre</string>
+    <string name="comment_email_hint">Tu correo electrónico</string>
+    <string name="comment_text_hint">Escribe tu comentario</string>
+    <string name="comment_send_button">Enviar</string>
+
+    <!-- Botones -->
+    <string name="search_button">Buscar</string>
+    <string name="filter_button">Filtrar</string>
+    <string name="clear_button">Limpiar</string>
+    <string name="view_details_button">Ver detalles</string>
+    <string name="add_favorite_button">Agregar a favoritos</string>
+    <string name="remove_favorite_button">Eliminar de favoritos</string>
+
+    <!-- Etiquetas -->
+    <string name="stars_label">Estrellas:</string>
+    <string name="price_range_label">Rango de precio:</string>
+    <string name="services">Servicios</string>
+    <string name="book_now">Reservar ahora</string>
+
+    <!-- Activity Login -->
+    <string name="login_title">Iniciar sesión</string>
+    <string name="login_email_hint">Correo electrónico</string>
+    <string name="login_password_hint">Contraseña</string>
+    <string name="login_button_text">Iniciar sesión</string>
+
+    <!-- Activity Register -->
+    <string name="hint_name">Nombre</string>
+    <string name="hint_email">Correo electrónico</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="btn_register">Registrarse</string>
+    <string name="link_login">¿Ya tienes una cuenta? Inicia sesión aquí</string>
+
+    <!-- Activity Reservation -->
+    <string name="reservation_title">Reserva de Hotel</string>
+    <string name="arrival_date_label">Fecha de llegada:</string>
+    <string name="departure_date_label">Fecha de salida:</string>
+    <string name="guest_count_label">Número de huéspedes:</string>
+    <string name="cancel_reservation_button">Cancelar Reserva</string>
+    <string name="confirm_reservation_button">Confirmar Reserva</string>
+
+    <!-- Activity Search -->
+    <string name="search_title">Buscar</string>
+    <string name="search_location_hint">Ubicación</string>
+    <string name="search_checkin_hint">Entrada</string>
+    <string name="search_checkout_hint">Salida</string>
+    <string name="search_button_text">Buscar</string>
+
+    <!-- Fragment Filter -->
+
+    <string name="filter_title">Filtros</string>
+    <string name="category_label">Categoría:</string>
+    <string name="date_label">Fecha:</string>
+    <string name="filter_button2">Aplicar filtros</string>
+
+
+    <!-- Fragment HotelList -->
+    <string name="loading_message">Cargando</string>
+    <string name="error_message">Error</string>
+
+    <!-- Fragment Home -->
+    <string name="category_title">Categoría:</string>
+    <string name="featured_title">Destacado:</string>
+
+    <!-- Fragment room list -->
+    <string name="room_list_header">Lista de habitaciones:</string>
+    <!-- Mensajes de confirmación -->
+    <string name="add_favorite_confirmation">Hotel agregado a favoritos.</string>
+    <string name="remove_favorite_confirmation">Hotel eliminado de favoritos.</string>
+    <string name="todo">TODO</string>
+</resources>
