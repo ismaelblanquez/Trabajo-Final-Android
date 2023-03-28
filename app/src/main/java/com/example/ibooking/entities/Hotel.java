@@ -63,8 +63,9 @@ public class Hotel {
         this.room = room;
     }
 
-    public int getPrice() {
-        return price;
+    public String getPrice() {
+
+        return String.format("%.2f €", price / 1.0f);
     }
 
     public void setPrice(int price) {
