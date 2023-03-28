@@ -36,17 +36,17 @@ public class HotelAdapter extends FirestoreRecyclerAdapter<Hotel, HotelAdapter.V
     protected void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position, @NonNull Hotel hotel) {
         // set data to views in holder
 
-        holder.hotelNameTextView.setText(hotel.getName());
-        holder.hotelDescriptionTextView.setText(hotel.getDescription());
-        holder.hotelPriceTextView.setText(String.valueOf(hotel.getPrice()));
-        holder.hotelRatingRatingBar.setRating(hotel.getRating());
-       // holder.hotelRoomTextView.setText(String.valueOf(hotel.getRoom()));
-        // set image to holder using a library such as Glide or Picasso
-        Glide.with(holder.hotelImageView.getContext())
-                .load(hotel.getImage())
-                .into(holder.hotelImageView);
+            holder.hotelNameTextView.setText(hotel.getName());
+            holder.hotelDescriptionTextView.setText(hotel.getDescription());
+            holder.hotelPriceTextView.setText(String.valueOf(hotel.getPrice()));
+            holder.hotelRatingRatingBar.setRating(hotel.getRating());
+            // holder.hotelRoomTextView.setText(String.valueOf(hotel.getRoom()));
+            // set image to holder using a library such as Glide or Picasso
+            Glide.with(holder.hotelImageView.getContext())
+                    .load(hotel.getImage())
+                    .into(holder.hotelImageView);
 
-        DocumentSnapshot documentSnapshot = getSnapshots().getSnapshot(position);
+            DocumentSnapshot documentSnapshot = getSnapshots().getSnapshot(position);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

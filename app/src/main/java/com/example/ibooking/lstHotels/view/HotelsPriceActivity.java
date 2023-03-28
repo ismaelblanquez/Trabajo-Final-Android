@@ -36,7 +36,7 @@ public class HotelsPriceActivity extends AppCompatActivity implements HotelAdapt
 
         recyclerView = findViewById(R.id.hotelsRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        Query query = mFirebase.collection("Hotel").orderBy("price", Query.Direction.DESCENDING);
+        Query query = mFirebase.collection("Hotel").orderBy("price", Query.Direction.ASCENDING);
 
         FirestoreRecyclerOptions<Hotel> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Hotel>().setQuery(query, Hotel.class).build();
         hotelAdapter = new HotelAdapter(firestoreRecyclerOptions);
