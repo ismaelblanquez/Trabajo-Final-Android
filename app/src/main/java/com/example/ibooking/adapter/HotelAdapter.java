@@ -37,9 +37,10 @@ public class HotelAdapter extends FirestoreRecyclerAdapter<Hotel, HotelAdapter.V
         // set data to views in holder
 
         holder.hotelNameTextView.setText(hotel.getName());
+        holder.hotelDescriptionTextView.setText(hotel.getDescription());
         holder.hotelPriceTextView.setText(String.valueOf(hotel.getPrice()));
         holder.hotelRatingRatingBar.setRating(hotel.getRating());
-        holder.hotelRoomTextView.setText(String.valueOf(hotel.getRoom()));
+       // holder.hotelRoomTextView.setText(String.valueOf(hotel.getRoom()));
         // set image to holder using a library such as Glide or Picasso
         Glide.with(holder.hotelImageView.getContext())
                 .load(hotel.getImage())
@@ -75,7 +76,7 @@ public class HotelAdapter extends FirestoreRecyclerAdapter<Hotel, HotelAdapter.V
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView hotelImageView;
-        TextView hotelNameTextView, hotelPriceTextView , hotelRoomTextView;
+        TextView hotelNameTextView, hotelPriceTextView , hotelDescriptionTextView;
         RatingBar hotelRatingRatingBar;
 
         public ViewHolder(@NonNull View itemView) {
@@ -83,9 +84,10 @@ public class HotelAdapter extends FirestoreRecyclerAdapter<Hotel, HotelAdapter.V
 
             hotelImageView = itemView.findViewById(R.id.view_image);
             hotelNameTextView = itemView.findViewById(R.id.view_name);
+            hotelDescriptionTextView = itemView.findViewById(R.id.view_description);
             hotelPriceTextView = itemView.findViewById(R.id.view_price);
             hotelRatingRatingBar = itemView.findViewById(R.id.view_rating);
-            hotelRoomTextView = itemView.findViewById(R.id.view_room);
+            //hotelRoomTextView = itemView.findViewById(R.id.view_room);
 
             hotelImageView.setOnClickListener(new View.OnClickListener() {
                 @Override
