@@ -23,7 +23,7 @@ public class DetailsActivity extends AppCompatActivity {
 
 
     FirebaseFirestore mFirebase;
-    TextView hotelNameTextView, hotelPriceTextView, hotelDescriptionTextView;
+    TextView hotelNameTextView, hotelPriceTextView, hotelDescriptionTextView, hotelRoomsTextView;
     ImageView hotelImageView;
     RatingBar hotelRatingRatingBar;
 
@@ -38,6 +38,7 @@ public class DetailsActivity extends AppCompatActivity {
         hotelPriceTextView = findViewById(R.id.view_price);
         hotelDescriptionTextView = findViewById(R.id.view_description);
         hotelRatingRatingBar = findViewById(R.id.view_rating);
+        hotelRoomsTextView = findViewById(R.id.view_available_rooms);
         hotelImageView = findViewById(R.id.view_image);
 
         Intent intent = getIntent();
@@ -52,6 +53,7 @@ public class DetailsActivity extends AppCompatActivity {
                         // display hotel details on screen
                         hotelNameTextView.setText(hotel.getName());
                         hotelPriceTextView.setText(String.valueOf(hotel.getPrice()));
+                        hotelRoomsTextView.setText(String.valueOf(hotel.getRoom()));
                         hotelDescriptionTextView.setText(hotel.getDescription());
                         hotelRatingRatingBar.setRating(hotel.getRating());
                         if (hotel.getImage() != null) {
