@@ -2,6 +2,8 @@ package com.example.ibooking.lstHotels.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -41,6 +43,7 @@ public class DetailsActivity extends AppCompatActivity {
         hotelRoomsTextView = findViewById(R.id.view_available_rooms);
         hotelImageView = findViewById(R.id.view_image);
 
+
         Intent intent = getIntent();
         String hotelId = intent.getStringExtra("hotelId");
         if (hotelId != null) {
@@ -73,6 +76,46 @@ public class DetailsActivity extends AppCompatActivity {
                     // handle error
                 }
             });
+            Button reserveButton = findViewById(R.id.book_button);
+            reserveButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int availableRooms = Integer.parseInt(hotelRoomsTextView.getText().toString());
+                    if (availableRooms > 0) {
+                        DocumentReference hotelRef = mFirebase.collection("Hotel").document(hotelId);
+                        hotelRef.update("room", availableRooms - 1)
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+                                        Toast.makeText(DetailsActivity.this, "Reservado!", Toast.LENGTH_SHORT).show();
+                                        hotelRoomsTextView.setText(String.valueOf(availableRooms - 1));
+                                        sendEmail("ismaelblanquez@gmail.com"); // Cambia example@example.com por el correo electrónico del usuario
+                                    }
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Toast.makeText(DetailsActivity.this, "Error al reservar", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                    } else {
+                        Toast.makeText(DetailsActivity.this, "No hay habitaciones disponibles", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+            });
         }
     }
+
+    private void sendEmail(String emailAddress) {
+        String subject = "Reserva de hotel";
+        String message = "¡Gracias por reservar con nosotros! Su habitación está lista.";
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{emailAddress});
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        intent.putExtra(Intent.EXTRA_TEXT, message);
+        intent.setType("message/rfc822");
+        startActivity(Intent.createChooser(intent, "Enviar correo electrónico"));
+    }
+
 }

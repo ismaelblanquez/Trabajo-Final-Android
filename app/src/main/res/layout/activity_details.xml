@@ -5,10 +5,10 @@
 
     <ImageView
         android:id="@+id/view_image"
-        android:layout_width="match_parent"
-        android:layout_height="240dp"
-        android:src="@drawable/ic_launcher_background"
-        android:scaleType="centerCrop"/>
+        android:layout_width="373dp"
+        android:layout_height="195dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_launcher_background" />
 
     <TextView
         android:id="@+id/view_name"
@@ -39,20 +39,38 @@
         android:textColor="#000000"/>
 
     <TextView
-        android:id="@+id/view_available_rooms"
-        android:layout_width="match_parent"
+        android:id="@+id/label_available_rooms"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/view_description"
         android:layout_marginTop="16dp"
         android:textSize="18sp"
+        android:textColor="#000000"
+        android:text="Habitaciones disponibles:"/>
+
+    <TextView
+        android:id="@+id/view_available_rooms"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/label_available_rooms"
+        android:textSize="18sp"
         android:textColor="#000000"/>
+
+    <TextView
+        android:id="@+id/label_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view_available_rooms"
+        android:layout_marginTop="16dp"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:text="Precio:"/>
 
     <TextView
         android:id="@+id/view_price"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/view_available_rooms"
-        android:layout_marginTop="16dp"
+        android:layout_below="@id/label_price"
         android:textSize="18sp"
         android:textColor="#000000"/>
 
@@ -62,6 +80,5 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/view_price"
         android:layout_marginTop="16dp"
-        android:text="Book Now"/>
-
+        android:text="Reservar ahora"/>
 </RelativeLayout>
