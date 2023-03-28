@@ -14,10 +14,11 @@ import com.example.ibooking.adapter.HotelAdapter;
 import com.example.ibooking.entities.Hotel;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
-public class HotelsActivity extends AppCompatActivity {
+public class HotelsActivity extends AppCompatActivity  implements HotelAdapter.OnItemClickListener{
     FirebaseFirestore mFirebase;
     FirebaseAuth mAuth;
 
@@ -64,5 +65,12 @@ public class HotelsActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         hotelAdapter.stopListening();
+    }
+
+    @Override
+    public void onItemClick(DocumentSnapshot documentSnapshot, int position) {
+        Intent intent = new Intent(this, DetailsActivity.class);
+        intent.putExtra("hotelId", documentSnapshot.getId());
+        startActivity(intent);
     }
 }
