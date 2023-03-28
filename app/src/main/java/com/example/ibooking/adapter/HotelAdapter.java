@@ -24,7 +24,7 @@ public class HotelAdapter extends FirestoreRecyclerAdapter<Hotel, HotelAdapter.V
     @Override
     protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull Hotel hotel) {
         // set data to views in holder
-        holder.hotelNameTextView.setText(hotel.getName());
+
         holder.hotelNameTextView.setText(hotel.getName());
         holder.hotelPriceTextView.setText(String.valueOf(hotel.getPrice()));
         holder.hotelRatingTextView.setText(String.valueOf(hotel.getRating()));

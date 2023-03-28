@@ -35,7 +35,7 @@ public class HotelsActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.hotelsRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        Query query = mFirebase.collection("hotel").orderBy("rating", Query.Direction.ASCENDING);
+        Query query = mFirebase.collection("Hotel").orderBy("rating", Query.Direction.ASCENDING);
 
         FirestoreRecyclerOptions<Hotel> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Hotel>().setQuery(query, Hotel.class).build();
         hotelAdapter = new HotelAdapter(firestoreRecyclerOptions);
