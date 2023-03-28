@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1018765832716",
+    "project_id": "ibooking-2370c",
+    "storage_bucket": "ibooking-2370c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1018765832716:android:7c786be481b21c8f96b429",
+        "android_client_info": {
+          "package_name": "com.example.ibooking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1018765832716-86udbfi8b1l6lpp4hua34j8n0v7d3p53.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASiE90m4vFQQXaqx_WzkfBmfGNVZ66O34"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1018765832716-86udbfi8b1l6lpp4hua34j8n0v7d3p53.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

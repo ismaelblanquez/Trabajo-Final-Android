@@ -63,6 +63,18 @@
         tools:ignore="DuplicateSpeakableTextCheck" />
 
     <!-- Un TextView para mostrar un mensaje de error en caso de que falle el inicio de sesión -->
+
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:backgroundTint="@color/DodgerBlue"
+        android:text="@string/register_button_text"
+        android:textAllCaps="false"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+
     <TextView
         android:id="@+id/login_error_message"
         android:layout_width="match_parent"

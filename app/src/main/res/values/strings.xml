@@ -10,7 +10,7 @@
     <string name="favorites_section">Favoritos</string>
     <string name="history_section">Historial</string>
     <string name="history_title">Historial</string>
-
+    <string name="register_button_text">Registrar</string>
     <!-- Nombres comentarios -->
     <string name="comment_title">Comentarios</string>
     <string name="comment_form_title">Deja un comentario</string>

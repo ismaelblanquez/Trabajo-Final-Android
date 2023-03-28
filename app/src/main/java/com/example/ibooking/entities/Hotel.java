@@ -2,18 +2,18 @@ package com.example.ibooking.entities;
 
 import android.location.Location;
 
-import com.google.gson.annotations.SerializedName;
+
 
 public class Hotel {
-    @SerializedName("hotel_id")
+
     private int hotel_id;
-    @SerializedName("name")
+
     private String name;
-    @SerializedName("description")
+
     private String description;
-    @SerializedName("Nombre")
+
     private int location;
-    @SerializedName("rating")
+
     private int rating;
 
 

@@ -37,13 +37,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".lstHotels.view.HotelListActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".lstHotels.view.HotelAdapter"
             android:exported="false">
             <meta-data

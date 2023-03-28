@@ -5,6 +5,7 @@
     android:orientation="vertical">
 
     <!-- Banner de la aplicación -->
+
     <ImageView
         android:id="@+id/app_banner"
         android:layout_width="match_parent"
@@ -12,6 +13,7 @@
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
         android:src="@drawable/booking" />
+
 
     <!-- Sección de botones -->
     <LinearLayout
@@ -63,5 +65,5 @@
             android:textColor="@color/white"
             android:textSize="16sp" />
     </LinearLayout>
-
 </LinearLayout>
+

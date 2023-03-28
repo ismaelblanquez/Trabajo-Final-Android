@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.example.ibooking.lstHotels.view.LoginActivity;
 import com.example.ibooking.lstHotels.view.RegisterActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 Intent screenChanger = new Intent(getBaseContext(),
-                        RegisterActivity.class //FichaDescriptiva-LoginActivity
+                        LoginActivity.class //FichaDescriptiva-LoginActivity
                 );
                 startActivity(screenChanger);
             }
