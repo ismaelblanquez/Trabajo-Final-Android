@@ -1,46 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-    <!-- Barra de búsqueda -->
-    <Button
-        android:id="@+id/search_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:iconifiedByDefault="false"
-        android:queryHint="@string/search_hint" />
+    android:layout_height="match_parent">
 
-    <!-- Lista de hoteles -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/hotelsRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/white"
-        android:clipToPadding="false"
-        android:padding="16dp"
-        android:scrollbars="vertical"
-        />
+        android:layout_height="match_parent" />
 
-    <!-- Mensaje de carga -->
-    <TextView
-        android:id="@+id/loading_text"
-        android:layout_width="match_parent"
+    <ImageButton
+        android:id="@+id/logout_button"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/loading_message"
-        android:textSize="20sp"
-        android:visibility="gone" />
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        android:src="@drawable/logout" />
 
-    <!-- Mensaje de error -->
-    <TextView
-        android:id="@+id/error_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/error_message"
-        android:textSize="20sp"
-        android:visibility="gone" />
-</LinearLayout>
+</RelativeLayout>

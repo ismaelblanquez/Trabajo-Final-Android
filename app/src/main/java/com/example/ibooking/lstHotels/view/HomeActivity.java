@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ibooking.MainActivity;
 import com.example.ibooking.R;
+import com.example.ibooking.adapter.HotelAdapter;
 
 public class HomeActivity extends AppCompatActivity {
     Button btnSeeAll,btnChoose,btnRating;
@@ -23,7 +24,7 @@ public class HomeActivity extends AppCompatActivity {
         btnSeeAll.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent screenChanger = new Intent(getBaseContext(),
-                        MainActivity.class
+                        HotelsActivity.class
                 );
                 startActivity(screenChanger);
             }

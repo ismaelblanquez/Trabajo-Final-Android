@@ -1,81 +1,89 @@
 package com.example.ibooking.entities;
 
-import android.location.Location;
-
-
 
 public class Hotel {
 
-    private int hotel_id;
 
     private String name;
 
     private String description;
 
-    private int location;
+    private String image;
+
+    private int room;
+
+    private int price;
 
     private int rating;
 
+    private String location;
 
+    public Hotel() {
+    }
 
-    public Hotel(String name, String description, int rating, int location) {
+    public Hotel(String name, String description, String image, int room, int price, int rating, String location) {
         this.name = name;
         this.description = description;
+        this.image = image;
+        this.room = room;
+        this.price = price;
         this.rating = rating;
         this.location = location;
-
     }
 
     public String getName() {
         return name;
     }
 
-    public int getHotel_id() {
-        return hotel_id;
-    }
-
-
-    public void setHotel_id(int hotel_id) {
-        this.hotel_id = hotel_id;
-    }
-
     public void setName(String name) {
         this.name = name;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public void setLocation(int location) {
-        this.location = location;
-    }
-
-    public void setRating(int rating) {
-        this.rating = rating;
     }
 
     public String getDescription() {
         return description;
     }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public int getRoom() {
+        return room;
+    }
+
+    public void setRoom(int room) {
+        this.room = room;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
     public int getRating() {
         return rating;
     }
 
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
 
-    public int getLocation() {
+    public String getLocation() {
         return location;
     }
 
-    @Override
-    public String toString() {
-        return "Hotel{" +
-                "hotel_id=" + hotel_id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", location=" + location +
-                ", rating=" + rating +
-                '}';
+    public void setLocation(String location) {
+        this.location = location;
     }
 }
