@@ -18,7 +18,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
-public class HotelsActivity extends AppCompatActivity  implements HotelAdapter.OnItemClickListener{
+public class HotelsPriceActivity extends AppCompatActivity implements HotelAdapter.OnItemClickListener{
     FirebaseFirestore mFirebase;
     FirebaseAuth mAuth;
 
@@ -36,7 +36,7 @@ public class HotelsActivity extends AppCompatActivity  implements HotelAdapter.O
 
         recyclerView = findViewById(R.id.hotelsRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        Query query = mFirebase.collection("Hotel").orderBy("name", Query.Direction.DESCENDING);
+        Query query = mFirebase.collection("Hotel").orderBy("price", Query.Direction.DESCENDING);
 
         FirestoreRecyclerOptions<Hotel> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Hotel>().setQuery(query, Hotel.class).build();
         hotelAdapter = new HotelAdapter(firestoreRecyclerOptions);
@@ -50,7 +50,7 @@ public class HotelsActivity extends AppCompatActivity  implements HotelAdapter.O
             public void onClick(View v) {
                 mAuth.signOut();
                 finish();
-                startActivity(new Intent(HotelsActivity.this, LoginActivity.class));
+                startActivity(new Intent(HotelsPriceActivity.this, LoginActivity.class));
             }
         });
     }

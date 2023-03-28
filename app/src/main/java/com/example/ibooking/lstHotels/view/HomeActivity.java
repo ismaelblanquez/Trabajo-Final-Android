@@ -35,7 +35,7 @@ public class HomeActivity extends AppCompatActivity {
         btnChoose.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent screenChanger = new Intent(getBaseContext(),
-                        MainActivity.class
+                        HotelsPriceActivity.class
                 );
                 startActivity(screenChanger);
             }
@@ -46,7 +46,7 @@ public class HomeActivity extends AppCompatActivity {
         btnRating.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent screenChanger = new Intent(getBaseContext(),
-                        MainActivity.class
+                        HotelsRatingActivity.class
                 );
                 startActivity(screenChanger);
             }

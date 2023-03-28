@@ -23,7 +23,21 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".lstHotels.view.HotelsRatingActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".lstHotels.view.DetailsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".lstHotels.view.HotelsPriceActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
