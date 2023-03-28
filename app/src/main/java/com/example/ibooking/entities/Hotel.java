@@ -3,7 +3,7 @@ package com.example.ibooking.entities;
 
 public class Hotel {
 
-
+    private int hotelId;
     private String name;
 
     private String description;
@@ -21,7 +21,8 @@ public class Hotel {
     public Hotel() {
     }
 
-    public Hotel(String name, String description, String image, int room, int price, int rating, String location) {
+    public Hotel(int hotelId, String name, String description, String image, int room, int price, int rating, String location) {
+        this.hotelId = hotelId;
         this.name = name;
         this.description = description;
         this.image = image;
@@ -68,6 +69,14 @@ public class Hotel {
         return String.format("%.2f €", price / 1.0f);
     }
 
+    public int getHotelId() {
+        return hotelId;
+    }
+
+    public void setHotelId(int hotelId) {
+        this.hotelId = hotelId;
+    }
+
     public void setPrice(int price) {
         this.price = price;
     }
@@ -86,5 +95,19 @@ public class Hotel {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    @Override
+    public String toString() {
+        return "Hotel{" +
+                "hotelId=" + hotelId +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", image='" + image + '\'' +
+                ", room=" + room +
+                ", price=" + price +
+                ", rating=" + rating +
+                ", location='" + location + '\'' +
+                '}';
     }
 }

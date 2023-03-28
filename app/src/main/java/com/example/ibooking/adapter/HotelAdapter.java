@@ -93,8 +93,17 @@ public class HotelAdapter extends FirestoreRecyclerAdapter<Hotel, HotelAdapter.V
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(itemView.getContext(), DetailsActivity.class);
-                    intent.putExtra("hotel_id", getSnapshots().getSnapshot(getAdapterPosition()).getId());
+                    intent.putExtra("hotelId", getSnapshots().getSnapshot(getBindingAdapterPosition()).getId());
                     itemView.getContext().startActivity(intent);
+                }
+            });
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (listener != null) {
+                        listener.onItemClick(getSnapshots().getSnapshot(getBindingAdapterPosition()), getBindingAdapterPosition());
+                    }
                 }
             });
         }
