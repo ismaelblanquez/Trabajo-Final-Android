@@ -46,7 +46,7 @@ public class HotelAdapter extends FirestoreRecyclerAdapter<Hotel, HotelAdapter.V
                     .load(hotel.getImage())
                     .into(holder.hotelImageView);
 
-            DocumentSnapshot documentSnapshot = getSnapshots().getSnapshot(position);
+            DocumentSnapshot documentSnapshot = getSnapshots().getSnapshot(holder.getBindingAdapterPosition());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
