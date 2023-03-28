@@ -161,6 +161,9 @@
     <!-- Definimos el color de texto secundario, como descripciones o información adicional, como un tono de gris oscuro -->
     <color name="secondary_text_color">#424242</color>
 
+    <color name="booking_button_pressed">#FFB900</color>
+    <color name="booking_button_focused">#FFE4C4</color>
+    <color name="booking_button_normal">#2196F3</color>
     <color name="overlay_color">#66000000</color>
     <color name="colorPrimary">#3F51B5</color>
     <color name="gray">#BFBFBF</color>

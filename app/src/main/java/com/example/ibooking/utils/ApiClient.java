@@ -1,15 +1,18 @@
 package com.example.ibooking.utils;
 
+import static okhttp3.internal.Internal.instance;
+
+import okhttp3.internal.Internal;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
 
 
-    public static final String BASE_URL = "http://localhost:8080/api";
+    public static final String BASE_URL = "http://10.11.1.2:8080/iBookingApi/webresources/api/";
 
     private  static Retrofit retrofit = null;
-
+    private ApiInterface myApi;
     public static Retrofit getBookingAPI() {
         if(retrofit == null){
             retrofit = new Retrofit.Builder()
@@ -20,4 +23,9 @@ public class ApiClient {
         return retrofit;
     }
 
+
+
+    public ApiInterface getMyApi() {
+        return myApi;
+    }
 }

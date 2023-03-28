@@ -8,6 +8,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ibooking.R;
+import com.example.ibooking.lstHotels.model.LstIndexModel;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -24,7 +25,7 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent screenChanger = new Intent(getBaseContext(),
-                        HotelListActivity.class
+                        HomeActivity.class
                 );
                 startActivity(screenChanger);
             }

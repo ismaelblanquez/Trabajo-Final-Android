@@ -19,7 +19,7 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.ViewHolderHo
     ArrayList<Hotel> lstHotels;
     private View.OnClickListener listener;
 
-    public HotelAdapter(ArrayList<Hotel> lstHotels, Context applicationContext) {
+    public HotelAdapter(ArrayList<Hotel> lstHotels) {
         this.lstHotels = lstHotels;
     }
 
@@ -52,8 +52,7 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.ViewHolderHo
         }
     }
 
-    public void setHotels(List<Hotel> lstHotel) {
-    }
+
 
     public class ViewHolderHotels extends RecyclerView.ViewHolder {
 

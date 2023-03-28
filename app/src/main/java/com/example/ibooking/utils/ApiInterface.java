@@ -2,10 +2,12 @@ package com.example.ibooking.utils;
 
 import com.example.ibooking.entities.Comment;
 import com.example.ibooking.entities.Hotel;
+import com.example.ibooking.entities.Index;
 import com.example.ibooking.entities.Location;
 import com.example.ibooking.entities.Reservation;
 import com.example.ibooking.entities.Room;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -19,7 +21,7 @@ import retrofit2.http.Path;
 public interface ApiInterface {
 
     @GET("hotels")
-    Call<List<Hotel>> getHotels();
+    Call<ArrayList<Index>> getHotels();
 
     @GET("rooms")
     Call<List<Room>> getRooms();
