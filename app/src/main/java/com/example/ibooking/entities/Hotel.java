@@ -12,13 +12,13 @@ public class Hotel {
     @SerializedName("description")
     private String description;
     @SerializedName("Nombre")
-    private Location location;
+    private int location;
     @SerializedName("rating")
     private int rating;
 
-    @SerializedName("image_url")
-    private String image_url;
-    public Hotel(String name, String description, int rating, Location location) {
+
+
+    public Hotel(String name, String description, int rating, int location) {
         this.name = name;
         this.description = description;
         this.rating = rating;
@@ -34,13 +34,6 @@ public class Hotel {
         return hotel_id;
     }
 
-    public String getImage_url() {
-        return image_url;
-    }
-
-    public void setImage_url(String image_url) {
-        this.image_url = image_url;
-    }
 
     public void setHotel_id(int hotel_id) {
         this.hotel_id = hotel_id;
@@ -54,7 +47,7 @@ public class Hotel {
         this.description = description;
     }
 
-    public void setLocation(Location location) {
+    public void setLocation(int location) {
         this.location = location;
     }
 
@@ -71,7 +64,7 @@ public class Hotel {
     }
 
 
-    public Location getLocation() {
+    public int getLocation() {
         return location;
     }
 

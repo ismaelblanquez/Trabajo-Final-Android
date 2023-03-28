@@ -12,88 +12,89 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ibooking.R;
 import com.example.ibooking.entities.Hotel;
-import com.example.ibooking.entities.Index;
 import com.example.ibooking.lstHotels.LstIndexContract;
 import com.example.ibooking.lstHotels.presenter.LstIndexPresenter;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class HotelListActivity extends AppCompatActivity implements LstIndexContract.View {
 
+    List<Hotel> lstHotels;
+    RecyclerView recyclerHotels;
+    Button btnSearch;
+    LstIndexPresenter lstIndexPresenter;
 
-        ArrayList<Hotel> lstHotels;
-        RecyclerView recyclerHotels;
-        Button btnSearch;
-        LstIndexPresenter lstIndexPresenter;
+    HotelAdapter hotelAdapter;
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
 
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_hotel_list);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_hotel_list);
 
-            initComponents();
-            initPresenter();
-            initData();
+        initComponents();
+        initPresenter();
+        initData();
 
-            btnSearch.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    Intent screenChanger = new Intent(getBaseContext(),
-                            HotelsFilterActivity.class
-                    );
-                    startActivity(screenChanger);
-                }
-            });
-        }
-
-        public void initComponents(){
-            lstHotels = new ArrayList<>();
-            recyclerHotels = (RecyclerView) findViewById(R.id.hotelsRecyclerView);
-            btnSearch = (Button) findViewById(R.id.search_view);
-        }
-
-        public void initPresenter(){
-            lstIndexPresenter = new LstIndexPresenter(this);
-        }
-
-        public void initData(){
-            lstIndexPresenter.lstIndex(null);
-        }
-
-        @Override
-        public void successLstIndex(ArrayList<Index> lstIndex) {
-            for (Hotel hotels: lstIndex.get(0).getHotels()) {
-                lstHotels.add(hotels);
-                //listaRestaurantes.add(new Restaurantes("La Mafia","Comida italiana"));
-                //listaRestaurantes.add(new Restaurantes("El Churrasco","Comida aragonesa"));
-                //listaRestaurantes.add(new Restaurantes("Ché","Comida argentina"));
+        /* btnSearch.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent screenChanger = new Intent(getBaseContext(),
+                        HotelsFilterActivity.class
+                );
+                startActivity(screenChanger);
             }
+        });*/
+    }
 
-            recyclerHotels.setLayoutManager(new LinearLayoutManager(this));
+    public void initComponents(){
+        recyclerHotels = (RecyclerView) findViewById(R.id.hotelsRecyclerView);
+        btnSearch = (Button) findViewById(R.id.search_view);
+        hotelAdapter = new HotelAdapter();
+    }
 
-            HotelAdapter adapter = new HotelAdapter(lstHotels);
+    public void initPresenter(){
+        lstIndexPresenter = new LstIndexPresenter(this);
+    }
 
-            adapter.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent screenChanger = new Intent(getBaseContext(),
-                            Hotel.class
-                    );
+    public void initData(){
+        lstIndexPresenter.lstIndex(null);
+    }
 
-                    startActivity(screenChanger);
-                }
-            });
+    @Override
+    public void successLstIndex(List<Hotel> lstIndex) {
 
-            recyclerHotels.setAdapter(adapter);
+        hotelAdapter.addHotels((ArrayList<Hotel>) lstIndex);
+        /*lstHotels = new ArrayList<>(); // inicializa lstHotels con una nueva lista vacía
+
+        for (Hotel hotel : lstIndex) {
+            lstHotels.add(hotel); // agrega cada hotel de lstIndex a lstHotels
+
         }
 
-        @Override
-        public void failureLstIndex(String error) {
-            Toast.makeText(this, error, Toast.LENGTH_SHORT).show();
-        }
+        recyclerHotels.setLayoutManager(new LinearLayoutManager(this));
+
+        HotelAdapter adapter = new HotelAdapter(lstHotels); // usa lstHotels en lugar de lstIndex
+
+        adapter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent screenChanger = new Intent(getBaseContext(),
+                        Hotel.class
+                );
+
+                startActivity(screenChanger);
+            }
+        });*/
+
+        recyclerHotels.setAdapter(adapter);
+    }
+
+    @Override
+    public void failureLstIndex(String error) {
+        Toast.makeText(this, error, Toast.LENGTH_SHORT).show();
+    }
 
 }
-
-

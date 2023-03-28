@@ -5,7 +5,6 @@ import com.example.ibooking.entities.Index;
 import com.example.ibooking.lstHotels.LstIndexContract;
 import com.example.ibooking.lstHotels.model.LstIndexModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class LstIndexPresenter implements LstIndexContract.Presenter {
@@ -21,7 +20,7 @@ public class LstIndexPresenter implements LstIndexContract.Presenter {
     public void lstIndex(Index index) {
         lstIndexModel.lstIndexWS(null, new LstIndexContract.Model.OnLstIndexListener() {
             @Override
-            public void onSuccess(ArrayList<Index> lstIndex) {
+            public void onSuccess(List<Hotel> lstIndex) {
                 if (lstIndex != null && lstIndex.size()>0){
                     view.successLstIndex(lstIndex);
                 }else{

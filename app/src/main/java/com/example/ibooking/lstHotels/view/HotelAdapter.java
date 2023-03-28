@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.appcompat.view.menu.MenuView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ibooking.R;
@@ -16,24 +17,37 @@ import java.util.List;
 
 public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.ViewHolderHotels> implements View.OnClickListener {
 
-    ArrayList<Hotel> lstHotels;
+    List<Hotel> lstHotels;
+    Context context;
     private View.OnClickListener listener;
 
-    public HotelAdapter(ArrayList<Hotel> lstHotels) {
-        this.lstHotels = lstHotels;
+    public HotelAdapter( Context context) {
+        lstHotels = new ArrayList<>();
+        this.context = context;
+    }
+
+    public void addHotels(ArrayList<Hotel> hotels){
+        lstHotels.clear();
+        lstHotels.addAll(hotels);
+        notifyDataSetChanged();
     }
 
     @Override
     public ViewHolderHotels onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_hotel_list,null,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_item_hotel,null,false);
         view.setOnClickListener(this);
         return new ViewHolderHotels(view);
     }
 
     @Override
     public void onBindViewHolder(ViewHolderHotels holder, int position) {
-        holder.etiNombre.setText(lstHotels.get(position).getName());
-        holder.etiDescription.setText(lstHotels.get(position).getDescription());
+        /*Hotel hotel = lstHotels.get(position);
+        holder.name.setText(hotel.getName());
+        holder.description.setText(hotel.getDescription());
+        holder.rating.setText(hotel.getRating());
+        holder.location.setText(hotel.getLocation());*/
+        holder.setItem(this.lstHotels.get(position));
+
     }
 
     @Override
@@ -56,12 +70,26 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.ViewHolderHo
 
     public class ViewHolderHotels extends RecyclerView.ViewHolder {
 
-        TextView etiNombre,etiDescription;
+        TextView hotel_id, name,description, rating, location;
 
         public ViewHolderHotels(View itemView) {
             super(itemView);
-          //  etiNombre = (TextView) itemView.findViewById(R.id.idNombre);
+          // etiNombre = (TextView) itemView.findViewById(R.id.idNombre);
            // etiDescription = (TextView) itemView.findViewById(R.id.idCategoria);
+        }
+
+        public void setItem(Hotel hotel) {
+            hotel_id = itemView.findViewById(R.id.hotel_id);
+            name = itemView.findViewById(R.id.name);
+            description = itemView.findViewById(R.id.description);
+            rating = itemView.findViewById(R.id.rating);
+            location = itemView.findViewById(R.id.location);
+
+            hotel_id.setText(String.valueOf(hotel.getHotel_id()));
+            name.setText(hotel.getName());
+            description.setText(hotel.getDescription());
+            location.setText(String.valueOf(hotel.getLocation()));
+            rating.setText(hotel.getRating());
         }
     }
 }

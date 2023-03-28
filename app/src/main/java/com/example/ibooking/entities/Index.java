@@ -10,14 +10,13 @@ import retrofit2.Call;
 
 public class Index{
 
+    @SerializedName("hotel")
+    private List<Hotel> hotels;
 
-    @SerializedName("hotels")
-    private ArrayList<Hotel> hotels;
-
-    public ArrayList<Hotel> getHotels() {
+    public List<Hotel> getHotels() {
         return this.hotels;
     }
-    public void setHotels(ArrayList<Hotel> hotels) {
+    public void setHotels(List<Hotel> hotels) {
         this.hotels = hotels;
     }
 }

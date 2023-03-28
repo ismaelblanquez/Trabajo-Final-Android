@@ -21,7 +21,7 @@ import retrofit2.http.Path;
 public interface ApiInterface {
 
     @GET("hotels")
-    Call<ArrayList<Index>> getHotels();
+    Call<List<Hotel>> getHotels();
 
     @GET("rooms")
     Call<List<Room>> getRooms();

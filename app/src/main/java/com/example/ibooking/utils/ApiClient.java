@@ -8,8 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
 
-
-    public static final String BASE_URL = "http://10.11.1.2:8080/iBookingApi/webresources/api/";
+    public static final String BASE_URL = "http://192.168.0.125:8080/iBookingApi/webresources/api/";
 
     private  static Retrofit retrofit = null;
     private ApiInterface myApi;
