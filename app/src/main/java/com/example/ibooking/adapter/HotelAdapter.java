@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,11 +28,21 @@ public class HotelAdapter extends FirestoreRecyclerAdapter<Hotel, HotelAdapter.V
 
         holder.hotelNameTextView.setText(hotel.getName());
         holder.hotelPriceTextView.setText(String.valueOf(hotel.getPrice()));
-        holder.hotelRatingTextView.setText(String.valueOf(hotel.getRating()));
+        holder.hotelRatingRatingBar.setRating(hotel.getRating());
+        holder.hotelRoomTextView.setText(String.valueOf(hotel.getRoom()));
         // set image to holder using a library such as Glide or Picasso
         Glide.with(holder.hotelImageView.getContext())
                 .load(hotel.getImage())
                 .into(holder.hotelImageView);
+
+        holder.hotelRatingRatingBar.setOnRatingBarChangeListener((ratingBar, rating, fromUser) -> {
+            if (fromUser) {
+                updateRating(position, rating);
+            }
+        });
+    }
+    public void updateRating(int position, float rating) {
+        getSnapshots().getSnapshot(position).getReference().update("rating", rating);
     }
 
     @NonNull
@@ -43,15 +54,16 @@ public class HotelAdapter extends FirestoreRecyclerAdapter<Hotel, HotelAdapter.V
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView hotelImageView;
-        TextView hotelNameTextView, hotelPriceTextView, hotelRatingTextView;
-
+        TextView hotelNameTextView, hotelPriceTextView , hotelRoomTextView;
+        RatingBar hotelRatingRatingBar;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             hotelImageView = itemView.findViewById(R.id.view_image);
             hotelNameTextView = itemView.findViewById(R.id.view_name);
             hotelPriceTextView = itemView.findViewById(R.id.view_price);
-            hotelRatingTextView = itemView.findViewById(R.id.view_rating);
+            hotelRatingRatingBar = itemView.findViewById(R.id.view_rating);
+            hotelRoomTextView = itemView.findViewById(R.id.view_room);
         }
     }
 }
