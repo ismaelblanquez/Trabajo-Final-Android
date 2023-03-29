@@ -62,5 +62,20 @@
             android:text="Mas valorados"
             android:textColor="@color/white"
             android:textSize="14sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginVertical="8dp"
+            android:background="@color/gray" />
+
+        <Button
+            android:id="@+id/btn_history"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/booking_button_background"
+            android:text="Historial"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
     </LinearLayout>
 </LinearLayout>
