@@ -110,4 +110,8 @@ public class Hotel {
                 ", location='" + location + '\'' +
                 '}';
     }
+
+    public String getPriceActivity() {
+        return String.format("%.2f €", price / 1.0f);
+    }
 }

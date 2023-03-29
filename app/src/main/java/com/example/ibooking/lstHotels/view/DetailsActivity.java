@@ -59,7 +59,7 @@ public class DetailsActivity extends AppCompatActivity {
                         Hotel hotel = documentSnapshot.toObject(Hotel.class);
                         // display hotel details on screen
                         hotelNameTextView.setText(hotel.getName());
-                        hotelPriceTextView.setText(String.valueOf(hotel.getPrice()));
+                        hotelPriceTextView.setText(String.valueOf(hotel.getPriceActivity()));
                         hotelRoomsTextView.setText(String.valueOf(hotel.getRoom()));
                         hotelDescriptionTextView.setText(hotel.getDescription());
                         hotelRatingRatingBar.setRating(hotel.getRating());
@@ -102,27 +102,25 @@ public class DetailsActivity extends AppCompatActivity {
                                             int hotelPrice = Integer.parseInt(hotelPriceTextView.getText().toString());
                                             String hotelId = getIntent().getStringExtra("hotelId");
                                             Reservation reservation = new Reservation(userId, hotelId, hotelName, hotelPrice);
-                                            mFirebase.collection("reservation").add(reservation)
-                                                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                                                        @Override
-                                                        public void onSuccess(DocumentReference documentReference) {
-                                                            // reservation added to history
-                                                            String reservationId = documentReference.getId();
-                                                            sendEmail(mAuth.getCurrentUser().getEmail());
-                                                            Log.d("DetailsActivity", "Reservation added with ID: " + reservationId);
-                                                            Intent screenChanger = new Intent(getBaseContext(),
+                                            mFirebase.collection("reservation").add(reservation).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                                @Override
+                                                public void onSuccess(DocumentReference documentReference) {
+                                                    // reservation added to history
+                                                    String reservationId = documentReference.getId();
+                                                    sendEmail(mAuth.getCurrentUser().getEmail());
+                                                    Log.d("DetailsActivity", "Reservation added with ID: " + reservationId);
+                                                           /* Intent screenChanger = new Intent(getBaseContext(),
                                                                     HomeActivity.class
                                                             );
-                                                            startActivity(screenChanger);
-                                                        }
-                                                    })
-                                                    .addOnFailureListener(new OnFailureListener() {
-                                                        @Override
-                                                        public void onFailure(@NonNull Exception e) {
-                                                            // handle error
-                                                            Log.e("DetailsActivity", "Error adding reservation", e);
-                                                        }
-                                                    });
+                                                            startActivity(screenChanger);*/
+                                                }
+                                            }).addOnFailureListener(new OnFailureListener() {
+                                                @Override
+                                                public void onFailure(@NonNull Exception e) {
+                                                    // handle error
+                                                    Log.e("DetailsActivity", "Error adding reservation", e);
+                                                }
+                                            });
 
                                         }
 
@@ -151,12 +149,17 @@ public class DetailsActivity extends AppCompatActivity {
         String subject = "Reserva de hotel";
         String message = "¡Gracias por reservar con nosotros! Su habitación está lista.";
         Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("message/rfc822");
         intent.putExtra(Intent.EXTRA_EMAIL, new String[]{emailAddress});
         intent.putExtra(Intent.EXTRA_SUBJECT, subject);
         intent.putExtra(Intent.EXTRA_TEXT, message);
-        intent.setType("message/rfc822");
-        startActivity(Intent.createChooser(intent, "Enviar correo electrónico"));
+        try {
+            startActivity(Intent.createChooser(intent, "Enviar correo electrónico"));
+        } catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(DetailsActivity.this, "No hay clientes de correo electrónico instalados.", Toast.LENGTH_SHORT).show();
+        }
     }
+
 
 
 }

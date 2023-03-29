@@ -38,7 +38,7 @@ public class HotelAdapter extends FirestoreRecyclerAdapter<Hotel, HotelAdapter.V
 
             holder.hotelNameTextView.setText(hotel.getName());
             holder.hotelDescriptionTextView.setText(hotel.getDescription());
-            holder.hotelPriceTextView.setText(String.valueOf(hotel.getPrice()));
+            holder.hotelPriceTextView.setText(String.valueOf(hotel.getPriceActivity()));
             holder.hotelRatingRatingBar.setRating(hotel.getRating());
             // holder.hotelRoomTextView.setText(String.valueOf(hotel.getRoom()));
             // set image to holder using a library such as Glide or Picasso
