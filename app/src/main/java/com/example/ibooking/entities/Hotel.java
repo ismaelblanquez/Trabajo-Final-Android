@@ -64,9 +64,9 @@ public class Hotel {
         this.room = room;
     }
 
-    public String getPrice() {
+    public int getPrice() {
 
-        return String.format("%.2f €", price / 1.0f);
+        return price;
     }
 
     public int getHotelId() {
