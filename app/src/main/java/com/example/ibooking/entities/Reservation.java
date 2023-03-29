@@ -48,6 +48,9 @@ public class Reservation {
     public int getPrice() {
         return price;
     }
+    public String getPriceActivity(){
+        return String.format("%.2f €", price / 1.0f);
+    }
 
     public void setPrice(int price) {
         this.price = price;

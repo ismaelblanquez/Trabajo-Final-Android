@@ -11,20 +11,22 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ibooking.R;
 import com.example.ibooking.adapter.HotelAdapter;
+import com.example.ibooking.adapter.ReservationAdapter;
 import com.example.ibooking.entities.Hotel;
+import com.example.ibooking.entities.Reservation;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
-public class HotelsHistoryActivity extends AppCompatActivity implements HotelAdapter.OnItemClickListener {
+public class HotelsHistoryActivity extends AppCompatActivity implements ReservationAdapter.OnItemClickListener {
     FirebaseFirestore mFirebase;
     FirebaseAuth mAuth;
 
     ImageButton btn_logout;
     RecyclerView recyclerView;
-    HotelAdapter hotelAdapter;
+    ReservationAdapter reservationAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +38,12 @@ public class HotelsHistoryActivity extends AppCompatActivity implements HotelAda
 
         recyclerView = findViewById(R.id.hotelsRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        Query query = mFirebase.collection("Hotel").orderBy("name", Query.Direction.ASCENDING).limit(3);
+        Query query = mFirebase.collection("reservation").orderBy("name", Query.Direction.ASCENDING);
 
-        FirestoreRecyclerOptions<Hotel> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Hotel>().setQuery(query, Hotel.class).build();
-        hotelAdapter = new HotelAdapter(firestoreRecyclerOptions);
-        hotelAdapter.notifyDataSetChanged();
-        recyclerView.setAdapter(hotelAdapter);
+        FirestoreRecyclerOptions<Reservation> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Reservation>().setQuery(query, Reservation.class).build();
+        reservationAdapter = new ReservationAdapter(firestoreRecyclerOptions); // initialize the instance variable
+        reservationAdapter.setOnItemClickListener(this);
+        recyclerView.setAdapter(reservationAdapter);
 
         btn_logout = findViewById(R.id.logout_button);
 
@@ -58,20 +60,23 @@ public class HotelsHistoryActivity extends AppCompatActivity implements HotelAda
     @Override
     protected void onStart() {
         super.onStart();
-        hotelAdapter.startListening();
+        if (reservationAdapter != null) { // add null check to avoid NPE
+            reservationAdapter.startListening();
+        }
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        hotelAdapter.stopListening();
+        if (reservationAdapter != null) { // add null check to avoid NPE
+            reservationAdapter.stopListening();
+        }
     }
 
     @Override
     public void onItemClick(DocumentSnapshot documentSnapshot, int position) {
         Intent intent = new Intent(this, DetailsActivity.class);
-        intent.putExtra("hotelId", documentSnapshot.getId());
+        intent.putExtra("reservationId", documentSnapshot.getId());
         startActivity(intent);
     }
 }
-

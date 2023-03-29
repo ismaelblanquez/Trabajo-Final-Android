@@ -59,7 +59,7 @@ public class DetailsActivity extends AppCompatActivity {
                         Hotel hotel = documentSnapshot.toObject(Hotel.class);
                         // display hotel details on screen
                         hotelNameTextView.setText(hotel.getName());
-                        hotelPriceTextView.setText(String.valueOf(hotel.getPriceActivity()));
+                        hotelPriceTextView.setText(String.valueOf(hotel.getPrice()));
                         hotelRoomsTextView.setText(String.valueOf(hotel.getRoom()));
                         hotelDescriptionTextView.setText(hotel.getDescription());
                         hotelRatingRatingBar.setRating(hotel.getRating());
