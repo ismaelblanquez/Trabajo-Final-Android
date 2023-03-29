@@ -10,7 +10,6 @@
         android:id="@+id/app_banner"
         android:layout_width="match_parent"
         android:layout_height="240dp"
-        android:adjustViewBounds="true"
         android:scaleType="centerCrop"
         android:src="@drawable/booking" />
 
@@ -18,64 +17,48 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:gravity="center"
         android:orientation="vertical"
         android:paddingHorizontal="16dp"
-        android:paddingVertical="8dp">
+        android:paddingTop="16dp">
 
         <Button
             android:id="@+id/btn_seeAll"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
+            android:layout_marginBottom="8dp"
             android:background="@drawable/booking_button_background"
             android:text="Destacados"
             android:textColor="@color/white"
-            android:textSize="14sp" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginVertical="8dp"
-            android:background="@color/gray" />
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/btn_choose"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
+            android:layout_marginBottom="8dp"
             android:background="@drawable/booking_button_background"
             android:text="Mejores Precios"
             android:textColor="@color/white"
-            android:textSize="14sp" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginVertical="8dp"
-            android:background="@color/gray" />
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/btn_rating"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
+            android:layout_marginBottom="8dp"
             android:background="@drawable/booking_button_background"
-            android:text="Mas valorados"
+            android:text="Mis valoraciones"
             android:textColor="@color/white"
-            android:textSize="14sp" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginVertical="8dp"
-            android:background="@color/gray" />
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/btn_history"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
             android:background="@drawable/booking_button_background"
             android:text="Historial"
+            android:backgroundTint="#41A1EE"
             android:textColor="@color/white"
-            android:textSize="14sp" />
+            android:textSize="18sp" />
     </LinearLayout>
 </LinearLayout>

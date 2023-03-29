@@ -18,8 +18,9 @@
     <item>
         <shape android:shape="rectangle">
             <corners android:radius="8dp" />
-            <solid android:color="@color/booking_button_normal" />
+            <solid android:color="#41A1EE" />
         </shape>
+        <tint android:color="#41A1EE"/>
     </item>
 
 </selector>
