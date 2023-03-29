@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -48,6 +49,20 @@ public class DetailsActivity extends AppCompatActivity {
         hotelRoomsTextView = findViewById(R.id.view_available_rooms);
         hotelImageView = findViewById(R.id.view_image);
 
+
+        ImageView btn_home;
+        btn_home = findViewById(R.id.btn_home);
+
+        btn_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent screenChanger = new Intent(getBaseContext(),
+                        HomeActivity.class
+                );
+                startActivity(screenChanger);
+            }
+        });
+
         Intent intent = getIntent();
         String hotelId = intent.getStringExtra("hotelId");
         if (hotelId != null) {
@@ -72,6 +87,7 @@ public class DetailsActivity extends AppCompatActivity {
                         Toast.makeText(DetailsActivity.this, "Hotel not found", Toast.LENGTH_SHORT).show();
                     }
                 }
+
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
@@ -143,6 +159,9 @@ public class DetailsActivity extends AppCompatActivity {
             });
         }
     }
+
+
+
 
 
     private void sendEmail(String emailAddress) {
