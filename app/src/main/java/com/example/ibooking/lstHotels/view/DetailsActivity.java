@@ -2,6 +2,7 @@ package com.example.ibooking.lstHotels.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -9,6 +10,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -33,6 +35,11 @@ public class DetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
+
+
+
+
+
 
         mFirebase = FirebaseFirestore.getInstance();
 
@@ -117,5 +124,7 @@ public class DetailsActivity extends AppCompatActivity {
         intent.setType("message/rfc822");
         startActivity(Intent.createChooser(intent, "Enviar correo electrónico"));
     }
+
+
 
 }

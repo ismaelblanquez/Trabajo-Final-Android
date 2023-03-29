@@ -7,12 +7,10 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.ibooking.MainActivity;
 import com.example.ibooking.R;
-import com.example.ibooking.adapter.HotelAdapter;
 
 public class HomeActivity extends AppCompatActivity {
-    Button btnSeeAll,btnChoose,btnRating;
+    Button btnSeeAll,btnChoose,btnRating, btnHistory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,5 +50,14 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        btnHistory = (Button) findViewById(R.id.btn_history);
+        btnHistory.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent screenChanger = new Intent(getBaseContext(),
+                        HotelsHistoryActivity.class
+                );
+                startActivity(screenChanger);
+            }
+        });
     }
 }
