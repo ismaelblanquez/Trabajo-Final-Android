@@ -1,5 +1,6 @@
 package com.example.ibooking.lstHotels.view;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
@@ -25,7 +27,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class DetailsActivity extends AppCompatActivity {
 
-
     FirebaseFirestore mFirebase;
     TextView hotelNameTextView, hotelPriceTextView, hotelDescriptionTextView, hotelRoomsTextView;
     ImageView hotelImageView;
@@ -36,11 +37,6 @@ public class DetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
 
-
-
-
-
-
         mFirebase = FirebaseFirestore.getInstance();
 
         hotelNameTextView = findViewById(R.id.view_name);
@@ -49,7 +45,6 @@ public class DetailsActivity extends AppCompatActivity {
         hotelRatingRatingBar = findViewById(R.id.view_rating);
         hotelRoomsTextView = findViewById(R.id.view_available_rooms);
         hotelImageView = findViewById(R.id.view_image);
-
 
         Intent intent = getIntent();
         String hotelId = intent.getStringExtra("hotelId");
@@ -83,28 +78,39 @@ public class DetailsActivity extends AppCompatActivity {
                     // handle error
                 }
             });
+
             Button reserveButton = findViewById(R.id.book_button);
             reserveButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     int availableRooms = Integer.parseInt(hotelRoomsTextView.getText().toString());
                     if (availableRooms > 0) {
-                        DocumentReference hotelRef = mFirebase.collection("Hotel").document(hotelId);
-                        hotelRef.update("room", availableRooms - 1)
-                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(DetailsActivity.this);
+                        builder.setTitle("Confirmar reserva")
+                                .setMessage("¿Está seguro de que desea reservar?")
+                                .setPositiveButton("Sí", new DialogInterface.OnClickListener() {
                                     @Override
-                                    public void onSuccess(Void aVoid) {
-                                        Toast.makeText(DetailsActivity.this, "Reservado!", Toast.LENGTH_SHORT).show();
-                                        hotelRoomsTextView.setText(String.valueOf(availableRooms - 1));
-                                        sendEmail("ismaelblanquez@gmail.com"); // Cambia example@example.com por el correo electrónico del usuario
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        DocumentReference hotelRef = mFirebase.collection("Hotel").document(hotelId);
+                                        hotelRef.update("room", availableRooms - 1)
+                                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                    @Override
+                                                    public void onSuccess(Void aVoid) {
+                                                        Toast.makeText(DetailsActivity.this, "Reservado!", Toast.LENGTH_SHORT).show();
+                                                        hotelRoomsTextView.setText(String.valueOf(availableRooms - 1));
+                                                        sendEmail("ismaelblanquez@gmail.com"); // Cambia example@example.com por el correo electrónico del usuario
+                                                    }
+                                                })
+                                                .addOnFailureListener(new OnFailureListener() {
+                                                    @Override
+                                                    public void onFailure(@NonNull Exception e) {
+                                                        Toast.makeText(DetailsActivity.this, "Error al reservar", Toast.LENGTH_SHORT).show();
+                                                    }
+                                                });
                                     }
                                 })
-                                .addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        Toast.makeText(DetailsActivity.this, "Error al reservar", Toast.LENGTH_SHORT).show();
-                                    }
-                                });
+                                .setNegativeButton("No", null)
+                                .show();
                     } else {
                         Toast.makeText(DetailsActivity.this, "No hay habitaciones disponibles", Toast.LENGTH_SHORT).show();
                     }
@@ -113,6 +119,7 @@ public class DetailsActivity extends AppCompatActivity {
             });
         }
     }
+
 
     private void sendEmail(String emailAddress) {
         String subject = "Reserva de hotel";
@@ -124,7 +131,6 @@ public class DetailsActivity extends AppCompatActivity {
         intent.setType("message/rfc822");
         startActivity(Intent.createChooser(intent, "Enviar correo electrónico"));
     }
-
 
 
 }
