@@ -39,7 +39,7 @@ public class DetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
-
+        getSupportActionBar().hide();
         mFirebase = FirebaseFirestore.getInstance();
 
         hotelNameTextView = findViewById(R.id.view_name);

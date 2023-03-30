@@ -30,7 +30,7 @@ public class HotelsActivity extends AppCompatActivity  implements HotelAdapter.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hotel_list);
-
+        getSupportActionBar().hide();
         mFirebase = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
 
