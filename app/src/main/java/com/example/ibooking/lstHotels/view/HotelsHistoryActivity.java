@@ -31,7 +31,7 @@ public class HotelsHistoryActivity extends AppCompatActivity implements Reservat
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hotel_list);
+        setContentView(R.layout.activity_hotels);
         getSupportActionBar().hide();
         mFirebase = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
@@ -45,7 +45,7 @@ public class HotelsHistoryActivity extends AppCompatActivity implements Reservat
         reservationAdapter.setOnItemClickListener(this);
         recyclerView.setAdapter(reservationAdapter);
 
-        btn_logout = findViewById(R.id.logout_button);
+        /*btn_logout = findViewById(R.id.logout_button);
 
         btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,7 +54,7 @@ public class HotelsHistoryActivity extends AppCompatActivity implements Reservat
                 finish();
                 startActivity(new Intent(HotelsHistoryActivity.this, LoginActivity.class));
             }
-        });
+        });*/
     }
 
     @Override

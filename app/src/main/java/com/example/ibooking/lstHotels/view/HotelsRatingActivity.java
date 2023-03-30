@@ -29,7 +29,7 @@ public class HotelsRatingActivity extends AppCompatActivity implements HotelAdap
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hotel_list);
+        setContentView(R.layout.activity_hotels);
         getSupportActionBar().hide();
         mFirebase = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
@@ -43,7 +43,7 @@ public class HotelsRatingActivity extends AppCompatActivity implements HotelAdap
         hotelAdapter.notifyDataSetChanged();
         recyclerView.setAdapter(hotelAdapter);
 
-        btn_logout = findViewById(R.id.logout_button);
+       /* btn_logout = findViewById(R.id.logout_button);
 
         btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,7 +52,7 @@ public class HotelsRatingActivity extends AppCompatActivity implements HotelAdap
                 finish();
                 startActivity(new Intent(HotelsRatingActivity.this, LoginActivity.class));
             }
-        });
+        });*/
     }
 
     @Override

@@ -3,6 +3,8 @@ package com.example.ibooking.lstHotels.view;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,11 +20,12 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
-public class HotelsActivity extends AppCompatActivity  implements HotelAdapter.OnItemClickListener{
+public class HotelsActivity extends AppCompatActivity implements HotelAdapter.OnItemClickListener{
     FirebaseFirestore mFirebase;
     FirebaseAuth mAuth;
 
     ImageButton btn_logout;
+    EditText et_search;
     RecyclerView recyclerView;
     HotelAdapter hotelAdapter;
 
@@ -42,17 +45,27 @@ public class HotelsActivity extends AppCompatActivity  implements HotelAdapter.O
         hotelAdapter = new HotelAdapter(firestoreRecyclerOptions);
         hotelAdapter.notifyDataSetChanged();
         recyclerView.setAdapter(hotelAdapter);
+        et_search = findViewById(R.id.et_search);
 
-        btn_logout = findViewById(R.id.logout_button);
 
-        btn_logout.setOnClickListener(new View.OnClickListener() {
+        // Agregar este código a tu método onCreate()
+        Button searchButton = findViewById(R.id.search_button);
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onSearch(v);
+            }
+        });
+        //btn_logout = findViewById(R.id.logout_button);
+
+       /* btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mAuth.signOut();
                 finish();
                 startActivity(new Intent(HotelsActivity.this, LoginActivity.class));
             }
-        });
+        });*/
     }
 
     @Override
@@ -72,5 +85,24 @@ public class HotelsActivity extends AppCompatActivity  implements HotelAdapter.O
         Intent intent = new Intent(this, DetailsActivity.class);
         intent.putExtra("hotelId", documentSnapshot.getId());
         startActivity(intent);
+    }
+
+    public void onSearch(View view) {
+        String searchText = et_search.getText().toString().trim();
+        Query query;
+        if (searchText.isEmpty()) {
+            query = mFirebase.collection("Hotel").orderBy("room", Query.Direction.ASCENDING).limit(10);
+        } else {
+            query = mFirebase.collection("Hotel")
+                    .whereGreaterThanOrEqualTo("name", searchText)
+                    .whereLessThanOrEqualTo("name", searchText + "\uf8ff")
+                    .orderBy("name")
+                    .limit(10);
+        }
+
+        FirestoreRecyclerOptions<Hotel> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Hotel>()
+                .setQuery(query, Hotel.class)
+                .build();
+        hotelAdapter.updateOptions(firestoreRecyclerOptions);
     }
 }

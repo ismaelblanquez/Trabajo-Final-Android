@@ -35,6 +35,7 @@ public class DetailsActivity extends AppCompatActivity {
     ImageView hotelImageView;
     RatingBar hotelRatingRatingBar;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +49,7 @@ public class DetailsActivity extends AppCompatActivity {
         hotelRatingRatingBar = findViewById(R.id.view_rating);
         hotelRoomsTextView = findViewById(R.id.view_available_rooms);
         hotelImageView = findViewById(R.id.view_image);
+
 
 
         ImageView btn_home;
