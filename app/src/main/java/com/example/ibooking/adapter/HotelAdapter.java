@@ -37,7 +37,7 @@ public class HotelAdapter extends FirestoreRecyclerAdapter<Hotel, HotelAdapter.V
         // set data to views in holder
 
             holder.hotelNameTextView.setText(hotel.getName());
-            holder.hotelDescriptionTextView.setText(hotel.getDescription());
+            //holder.hotelDescriptionTextView.setText(hotel.getDescription());
             holder.hotelPriceTextView.setText(String.valueOf(hotel.getPriceActivity()));
             holder.hotelRatingRatingBar.setRating(hotel.getRating());
             // holder.hotelRoomTextView.setText(String.valueOf(hotel.getRoom()));
@@ -84,7 +84,7 @@ public class HotelAdapter extends FirestoreRecyclerAdapter<Hotel, HotelAdapter.V
 
             hotelImageView = itemView.findViewById(R.id.view_image);
             hotelNameTextView = itemView.findViewById(R.id.view_name);
-            hotelDescriptionTextView = itemView.findViewById(R.id.view_description);
+           // hotelDescriptionTextView = itemView.findViewById(R.id.view_description);
             hotelPriceTextView = itemView.findViewById(R.id.view_price);
             hotelRatingRatingBar = itemView.findViewById(R.id.view_rating);
             //hotelRoomTextView = itemView.findViewById(R.id.view_room);

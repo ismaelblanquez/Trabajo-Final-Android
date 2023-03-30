@@ -10,55 +10,46 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="135dp"
         android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/view_image"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:src="@drawable/ic_launcher_background"
-            android:scaleType="centerCrop"/>
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="1dp"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/view_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nombre del producto"
-                android:textSize="18sp"
-                android:textColor="#000000"
-                android:textStyle="bold"
-                android:maxLines="2"
-                android:ellipsize="end"/>
-
-            <TextView
-                android:id="@+id/view_description"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Descripción del producto"
-                android:textSize="14sp"
-                android:textColor="#808080"
-                android:maxLines="2"
                 android:ellipsize="end"
-                android:layout_marginTop="8dp"/>
+                android:maxLines="2"
+                android:text="Nombre del producto"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
 
             <TextView
                 android:id="@+id/view_price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:text="$20.00"
+                android:textColor="#3F51B5"
                 android:textSize="24sp"
-                android:textColor="#000000"
-                android:textStyle="bold"
-                android:layout_marginTop="8dp"/>
+                android:textStyle="bold" />
 
             <RatingBar
                 android:id="@+id/view_rating"
